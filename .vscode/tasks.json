@@ -1,0 +1,54 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "atcorder_auto_test_sample",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "type": "shell",
+            "command": "${workspaceFolder}/contests/script/at_test.ps1",
+            "args": [
+                "${fileDirname}"
+            ]
+        },
+        {
+            "label": "atcorder_submit",
+            "group":  "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/contests/script/at_submit.ps1",
+            "args": [
+                "${fileDirname}"
+            ]
+        },
+        {
+            "label": "atcoder_startup",
+            "group": "build",
+            "type": "shell",
+            "command":"${workspaceFolder}/contests/script/at_startup.ps1",
+            "args": [
+                "${input:contestName}"
+            ]
+        },
+        {
+            "label": "atcorder_randam_test",
+            "group":  "build",
+            "type": "shell",
+            "command": "${workspaceFolder}/contests/script/at_rand_test.ps1",
+            "args": [
+                "${fileDirname}"
+            ]
+        },
+
+    ],
+    "inputs": [
+        {
+            "type": "promptString",
+            "id": "contestName",
+            "description": "Type today's contest name:"
+        }
+    ]
+}
