@@ -1,0 +1,11 @@
+N = int(input())
+A = sorted(list(map(int, input())))
+B = sorted(list(map(int, input())))
+
+count = 0
+for a in A:
+    for b in B:
+        if a < b:
+            count += 1
+            break
+print(count)
